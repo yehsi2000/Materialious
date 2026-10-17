@@ -3,7 +3,6 @@ import type { PlaylistPageVideo, Video, VideoBase } from '$lib/api/model';
 import { localDb } from '$lib/dexie';
 import { authProtected } from '$lib/auth';
 import { feedCacheStore, feedLoadingStore } from '$lib/store';
-import { error } from '@sveltejs/kit';
 import { get } from 'svelte/store';
 
 type supportedVideos = (VideoBase | Video | PlaylistPageVideo)[];
@@ -43,9 +42,11 @@ export async function load() {
 		const feed = await getFeed(100, 1);
 		const videos = await sortVideosByFavourites([...feed.notifications, ...feed.videos]);
 		feedCacheStore.set({ ...get(feedCacheStore), subscription: videos });
-	} catch (e) {
-		error(500, e instanceof Error ? e : String(e));
+	} catch {
+		// Keep the independent live scanner reachable during a merged-feed outage.
+		return { feedUnavailable: true };
 	} finally {
 		feedLoadingStore.set(false);
 	}
+	return { feedUnavailable: false };
 }

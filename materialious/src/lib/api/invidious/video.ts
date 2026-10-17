@@ -5,6 +5,7 @@ import { getVideoYTjs } from '../youtubejs/video';
 import { playerYouTubeJsFallback } from '$lib/store';
 import { isUnrestrictedPlatform } from '$lib/backend';
 import { associateAvatar } from '$lib/thumbnail';
+import { resolveHlsManifestUrl } from './manifestUrl';
 
 export async function getVideoInvidious(
 	videoId: string,
@@ -28,5 +29,6 @@ export async function getVideoInvidious(
 		await associateAvatar(respJson.authorId, respJson.authorThumbnails);
 	}
 
+	respJson.hlsUrl = resolveHlsManifestUrl(respJson.hlsUrl, path.toString());
 	return respJson;
 }

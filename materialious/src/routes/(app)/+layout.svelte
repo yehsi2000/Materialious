@@ -4,6 +4,7 @@
 
 	import { navigating, page } from '$app/state';
 	import { getFeed, notificationsMarkAsRead } from '$lib/api/index';
+	import { HTTPError } from '$lib/api/invidious/request';
 	import type { Notification } from '$lib/api/model';
 	import Logo from '$lib/components/Logo.svelte';
 	import PageLoading from '$lib/components/PageLoading.svelte';
@@ -116,9 +117,11 @@
 		if ($invidiousAuthStore && !isYTBackend()) {
 			loadNotifications().catch((error) => {
 				console.error('Failed to load invidious feed', error);
-				// A rejected token is only invalid on this device. Don't delete the
-				// synchronized cloud copy, which other (or future) sessions rely on.
-				invidiousAuthStore.set(null);
+				// Only an explicit authentication rejection invalidates the token.
+				// A feed outage must not log out the independent live scanner.
+				if (error instanceof HTTPError && [401, 403].includes(error.response.status)) {
+					invidiousAuthStore.set(null);
+				}
 			});
 		}
 

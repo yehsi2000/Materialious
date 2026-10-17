@@ -22,6 +22,7 @@ const resources: Record<string, () => Promise<Record<string, any>>> = {
 	'pt-BR': () => import('./locales/pt-BR.json'),
 	lv: () => import('./locales/lv.json'),
 	ja: () => import('./locales/ja.json'),
+	ko: () => import('./locales/ko.json'),
 	mi: () => import('./locales/mi.json'),
 	'hu-HU': () => import('./locales/hu.json')
 };

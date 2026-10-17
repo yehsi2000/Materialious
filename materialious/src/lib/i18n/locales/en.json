@@ -121,6 +121,27 @@
 	"subscriptions": {
 		"manageSubscriptions": "Manage subscriptions"
 	},
+	"subscriptionsLive": {
+		"title": "Subscribed now live",
+		"open": "Now live",
+		"refresh": "Refresh",
+		"refreshing": "Refreshing…",
+		"preparing": "Checking your subscriptions…",
+		"checkingChannels": "Checking channels… {{checked}}/{{total}}",
+		"checkingVideos": "Checking live candidates… {{checked}}/{{total}}",
+		"lastChecked": "Last checked {{time}}",
+		"coverage": "Checks up to 15 broadcast candidates from each channel's first page. Server caches may delay status changes.",
+		"neverChecked": "Not checked yet",
+		"noConfirmedLive": "No live broadcasts confirmed yet. Some channels could not be fully checked.",
+		"noLive": "None of the checked broadcast candidates are live right now.",
+		"noSubscriptions": "You don't have any subscriptions yet.",
+		"partialChannels": "{{n}} channel(s) couldn't be checked.",
+		"partialVideos": "{{n}} live candidate(s) couldn't be verified.",
+		"truncated": "{{n}} channel(s) may have more live streams than shown.",
+		"feedUnavailable": "The subscription feed could not be loaded. You can still check Now live separately.",
+		"error": "Unable to check your subscriptions.",
+		"retry": "Try again"
+	},
 	"playlist": {
 		"createPlaylist": "Create playlist",
 		"public": "Public",

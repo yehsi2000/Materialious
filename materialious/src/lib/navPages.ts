@@ -21,6 +21,12 @@ export function getPages(): Pages {
 			requiresAuth: true
 		},
 		{
+			icon: 'sensors',
+			href: '/subscriptions/live',
+			name: get(_)('subscriptionsLive.open'),
+			requiresAuth: true
+		},
+		{
 			icon: 'video_library',
 			href: '/playlists',
 			name: get(_)('pages.playlists'),

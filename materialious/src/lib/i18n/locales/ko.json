@@ -1,0 +1,29 @@
+{
+	"subscriptions": {
+		"manageSubscriptions": "구독 관리"
+	},
+	"subscriptionsLive": {
+		"title": "구독 채널 라이브",
+		"open": "지금 라이브",
+		"refresh": "새로 고침",
+		"refreshing": "새로 고치는 중…",
+		"preparing": "구독을 확인하는 중…",
+		"checkingChannels": "채널 확인 중… {{checked}}/{{total}}",
+		"checkingVideos": "라이브 후보 확인 중… {{checked}}/{{total}}",
+		"lastChecked": "마지막 확인 {{time}}",
+		"coverage": "채널별 첫 페이지에서 최대 15개 방송 후보를 확인합니다. 서버 캐시로 상태 반영이 늦을 수 있습니다.",
+		"neverChecked": "아직 확인하지 않음",
+		"noConfirmedLive": "아직 방송 중으로 확인된 라이브가 없습니다. 일부 채널은 확인을 완료하지 못했습니다.",
+		"noLive": "확인한 구독 채널의 방송 후보 중 현재 진행 중인 라이브가 없습니다.",
+		"noSubscriptions": "아직 구독한 채널이 없습니다.",
+		"partialChannels": "{{n}}개 채널을 확인하지 못했습니다.",
+		"partialVideos": "{{n}}개 라이브 후보의 여부를 확인하지 못했습니다.",
+		"truncated": "{{n}}개 채널에 표시된 것보다 더 많은 라이브 방송이 있을 수 있습니다.",
+		"feedUnavailable": "구독 피드를 불러오지 못했습니다. ‘지금 라이브’는 별도로 확인할 수 있습니다.",
+		"error": "구독을 확인할 수 없습니다.",
+		"retry": "다시 시도"
+	},
+	"pages": {
+		"subscriptions": "구독"
+	}
+}
