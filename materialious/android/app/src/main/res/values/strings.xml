@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Materialious</string>
-    <string name="title_activity_main">Materialious</string>
-    <string name="package_name">us.materialio.app</string>
-    <string name="custom_url_scheme">us.materialio.app</string>
+    <string name="app_name">Materialious Live</string>
+    <string name="title_activity_main">Materialious Live</string>
+    <string name="package_name">us.materialio.app.livefork</string>
+    <string name="custom_url_scheme">us.materialio.app.livefork</string>
     <string name="audio_player_service_description">Allows for audio to play in the background.</string>
 </resources>

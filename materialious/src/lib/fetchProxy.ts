@@ -8,7 +8,7 @@ import { isOwnBackend } from './shared';
 export const originalFetch = window.fetch;
 export const corsProxyUrl =
 	Capacitor.getPlatform() === 'android'
-		? 'http://localhost:3000/'
+		? 'http://localhost:3001/'
 		: `${location.origin}/api/proxy/`;
 
 let mobileNodeLoaded = false;

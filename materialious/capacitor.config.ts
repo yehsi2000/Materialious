@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-	appId: 'us.materialio.app',
-	appName: 'Materialious',
+	appId: 'us.materialio.app.livefork',
+	appName: 'Materialious Live',
 	webDir: 'build',
 	plugins: {
 		CapacitorNodeJS: {

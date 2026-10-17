@@ -2,7 +2,7 @@ const http = require('http');
 const https = require('https');
 
 const HOST = 'localhost';
-const PORT = 3000;
+const PORT = 3001;
 const MAX_REDIRECTS = 10;
 
 // Can be changed via channels to disable ssl validation.

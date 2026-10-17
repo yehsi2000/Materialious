@@ -117,7 +117,7 @@ export async function goToInvidiousLogin() {
 		scopes: ':feed,:subscriptions*,:playlists*,:history*,:notifications*'
 	});
 	if (Capacitor.getPlatform() === 'android') {
-		searchParams.set('callback_url', 'materialious-auth://');
+		searchParams.set('callback_url', 'materialious-live-auth://');
 		path.search = searchParams.toString();
 		await Browser.open({ url: path.toString() });
 	} else {

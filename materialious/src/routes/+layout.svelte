@@ -99,7 +99,7 @@
 		const url = new URL(data.url);
 
 		// Handle youtube deeplinks
-		if (url.protocol !== 'materialious-auth:') {
+		if (url.protocol !== 'materialious-live-auth:') {
 			let videoId = url.searchParams.get('v');
 			if (!videoId) {
 				videoId = url.pathname.split('/')[1];

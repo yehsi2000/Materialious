@@ -26,7 +26,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="materialious-auth" />
+                <data android:scheme="materialious-live-auth" />
             </intent-filter>
 
             <intent-filter android:autoVerify="true">
