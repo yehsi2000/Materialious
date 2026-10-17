@@ -359,20 +359,28 @@
 					max={video.lengthSeconds}
 				></progress>
 			{/if}
-			{#if !('liveVideo' in video) || !video.liveVideo}
+			{#if 'liveVideo' in video && video.liveVideo}
 				{#if video.lengthSeconds !== 0}
 					<div
-						class="absolute right bottom small-margin black white-text small-text thumbnail-corner"
+						class="absolute right bottom small-margin red white-text small-text thumbnail-corner"
 					>
-						&nbsp;{videoLength(video.lengthSeconds)}&nbsp;
+						{$_('thumbnail.live')}
 					</div>
+				{:else}
+					<h3>{$_('thumbnail.live')}</h3>
 				{/if}
-			{:else if video.lengthSeconds !== 0}
-				<div class="absolute right bottom small-margin red white-text small-text thumbnail-corner">
-					{$_('thumbnail.live')}
+			{:else if 'isUpcoming' in video && video.isUpcoming}
+				<div
+					class="absolute right bottom small-margin black white-text small-text thumbnail-corner"
+				>
+					{$_('thumbnail.upcoming')}
 				</div>
-			{:else}
-				<h3>{$_('thumbnail.live')}</h3>
+			{:else if video.lengthSeconds !== 0}
+				<div
+					class="absolute right bottom small-margin black white-text small-text thumbnail-corner"
+				>
+					&nbsp;{videoLength(video.lengthSeconds)}&nbsp;
+				</div>
 			{/if}
 		</a>
 	</div>

@@ -21,6 +21,10 @@
 	const CACHE_TTL_MS = 2 * 60 * 1000;
 	const liveCache = createLiveCache(CACHE_TTL_MS);
 
+	// The whole-channel scan is an explicit, optional tool. Merely opening it does
+	// NOT start a scan: the user must press Start. The default Now live experience
+	// is the feed-first filter on the subscriptions page.
+	let started: boolean = $state(false);
 	let status: 'loading' | 'done' | 'error' = $state('loading');
 	let result: LiveScanResult | null = $state(null);
 	let progress: LiveScanProgress | null = $state(null);
@@ -96,8 +100,15 @@
 		}
 	}
 
-	// Re-run on mount and whenever the instance, backend or account changes; the
-	// cleanup cancels an in-flight scan on navigation or scope change.
+	// Only a deliberate user action starts the scan. No mount-time effect calls
+	// runScan, so opening the page issues no channel requests.
+	function startScan() {
+		started = true;
+		runScan(false);
+	}
+
+	// Reset the view when the identity changes; the cleanup cancels an in-flight
+	// scan on navigation. This effect never starts a scan.
 	$effect(() => {
 		const nextScope = scope;
 		untrack(() => {
@@ -107,9 +118,9 @@
 				result = null;
 				hasResult = false;
 				errorMessage = null;
+				started = false;
 				displayedScope = nextScope;
 			}
-			runScan(false);
 		});
 		return () => controller?.abort();
 	});
@@ -119,12 +130,14 @@
 	<nav>
 		<h1 class="no-margin live-title">{$_('subscriptionsLive.title')}</h1>
 		<div class="max"></div>
-		<button class="surface-container-highest" disabled={refreshing} onclick={() => runScan(true)}>
-			<i>{refreshing ? 'sync' : 'refresh'}</i>
-			<span
-				>{refreshing ? $_('subscriptionsLive.refreshing') : $_('subscriptionsLive.refresh')}</span
-			>
-		</button>
+		{#if started}
+			<button class="surface-container-highest" disabled={refreshing} onclick={() => runScan(true)}>
+				<i>{refreshing ? 'sync' : 'refresh'}</i>
+				<span
+					>{refreshing ? $_('subscriptionsLive.refreshing') : $_('subscriptionsLive.refresh')}</span
+				>
+			</button>
+		{/if}
 	</nav>
 
 	<div class="live-meta">
@@ -160,7 +173,15 @@
 	{/if}
 </div>
 
-{#if status === 'error'}
+{#if !started}
+	<div class="center-align padding">
+		<p>{$_('subscriptionsLive.scanScope')}</p>
+		<button class="primary" onclick={startScan}>
+			<i>sensors</i>
+			<span>{$_('subscriptionsLive.startScan')}</span>
+		</button>
+	</div>
+{:else if status === 'error'}
 	<div class="center-align padding">
 		<h6>{$_('subscriptionsLive.error')}</h6>
 		{#if errorMessage}<p class="small">{errorMessage}</p>{/if}

@@ -10,6 +10,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
 		"types": ["shaka-player"]
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte", ".svelte-kit/ambient.d.ts"],

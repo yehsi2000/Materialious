@@ -124,6 +124,21 @@
 	"subscriptionsLive": {
 		"title": "Subscribed now live",
 		"open": "Now live",
+		"fullScan": "Full channel scan",
+		"filterAll": "All",
+		"filterLive": "Live now",
+		"filterUpcoming": "Upcoming",
+		"feedScope": "Filters the videos already loaded in your subscription feed. It does not scan every subscribed channel; use Full channel scan for that.",
+		"feedChecking": "Checking loaded videos… {{checked}}/{{total}}",
+		"feedUnverified": "{{n}} loaded video(s) could not be verified. They are not shown as live or upcoming.",
+		"noFilterMatch": "No loaded videos match this filter yet. Use Load more to fetch older videos.",
+		"loadMore": "Load more",
+		"loadingMore": "Loading more…",
+		"noMore": "No more videos to load.",
+		"loadMoreFailed": "Could not load more videos.",
+		"refreshFailed": "Could not refresh the feed.",
+		"startScan": "Start full scan",
+		"scanScope": "Optional and separate from the feed filters: this lists each subscribed channel's Streams page and verifies candidates. It is slower and does not run until you press the button.",
 		"refresh": "Refresh",
 		"refreshing": "Refreshing…",
 		"preparing": "Checking your subscriptions…",
@@ -158,6 +173,7 @@
 	},
 	"thumbnail": {
 		"live": "LIVE",
+		"upcoming": "UPCOMING",
 		"failedToLoadImage": "Failed to load image"
 	},
 	"pages": {

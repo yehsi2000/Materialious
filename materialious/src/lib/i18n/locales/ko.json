@@ -5,6 +5,21 @@
 	"subscriptionsLive": {
 		"title": "구독 채널 라이브",
 		"open": "지금 라이브",
+		"fullScan": "전체 채널 검사",
+		"filterAll": "전체",
+		"filterLive": "지금 라이브",
+		"filterUpcoming": "예정",
+		"feedScope": "구독 피드에 이미 불러온 영상만 필터링합니다. 구독한 모든 채널을 검사하지 않으며, 전체 검사는 ‘전체 채널 검사’를 사용하세요.",
+		"feedChecking": "불러온 영상 확인 중… {{checked}}/{{total}}",
+		"feedUnverified": "{{n}}개 영상을 확인하지 못했습니다. 라이브나 예정으로 표시하지 않습니다.",
+		"noFilterMatch": "이 필터에 해당하는 불러온 영상이 아직 없습니다. ‘더 불러오기’로 이전 영상을 가져오세요.",
+		"loadMore": "더 불러오기",
+		"loadingMore": "더 불러오는 중…",
+		"noMore": "더 불러올 영상이 없습니다.",
+		"loadMoreFailed": "영상을 더 불러오지 못했습니다.",
+		"refreshFailed": "피드를 새로 고치지 못했습니다.",
+		"startScan": "전체 검사 시작",
+		"scanScope": "선택 사항이며 피드 필터와 별개입니다. 구독한 각 채널의 스트림 페이지를 확인해 후보를 검증합니다. 느리며 버튼을 누르기 전에는 시작되지 않습니다.",
 		"refresh": "새로 고침",
 		"refreshing": "새로 고치는 중…",
 		"preparing": "구독을 확인하는 중…",
@@ -22,6 +37,10 @@
 		"feedUnavailable": "구독 피드를 불러오지 못했습니다. ‘지금 라이브’는 별도로 확인할 수 있습니다.",
 		"error": "구독을 확인할 수 없습니다.",
 		"retry": "다시 시도"
+	},
+	"thumbnail": {
+		"live": "LIVE",
+		"upcoming": "예정"
 	},
 	"pages": {
 		"subscriptions": "구독"
