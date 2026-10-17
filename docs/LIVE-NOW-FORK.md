@@ -4,13 +4,13 @@ This fork adds a **Live now** view for subscribed channels. It is not an officia
 
 ## Scope
 
-- Find candidates in subscribed channels' Streams pages, not only the merged subscription feed.
-- Confirm video detail state before showing an item as live; upcoming and archived broadcasts do not belong in Live now.
-- Preserve multiple simultaneous broadcasts from the same channel and deduplicate videos.
-- Limit concurrent requests, support manual refresh and cancellation, and distinguish failed checks from confirmed offline channels.
-- Show loading/progress, empty/no-subscription, partial failure, and last-check information.
-- Open **Now live** directly from the main navigation or from the subscriptions screen. A failing merged feed does not prevent opening the live screen.
+- **Default: feed-first subscriptions.** Show the existing feed immediately, with All / Live now / Upcoming filters. Correct state in the background using only loaded video IDs; do not scan subscribed channels automatically.
+- Filter scope is the loaded feed, not all broadcasts across every subscribed channel. Pagination remains available even when no loaded item matches the filter.
+- Live detail checks use bounded requests, cancellation, progressive updates and isolated local state. Failed checks remain unverified rather than confirmed offline. Refresh bypasses local detail state, not server caches.
+- **Optional: full-channel scan.** Open the separate Live now tool and explicitly start a scan to discover candidates beyond the feed. Merely opening it must not start channel crawling.
+- In the optional scan, find candidates in subscribed channels' first Streams pages and confirm video detail state; upcoming and archived broadcasts do not belong in Live now. Preserve multiple simultaneous broadcasts and deduplicate videos.
 - Reuse existing video cards and playback. This does not replace or patch the streaming extractor.
+- Acceptance criteria for this revision: [FEED-FIRST-SPEC.md](FEED-FIRST-SPEC.md).
 
 ## Android versus web
 
